@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/12/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>JAVA并发编程</title>
     <url>/2021/12/02/JUC/</url>
     <content><![CDATA[<h1 id="Java并发编程"><a href="#Java并发编程" class="headerlink" title="Java并发编程"></a>Java并发编程</h1><h2 id="进程与线程的概念"><a href="#进程与线程的概念" class="headerlink" title="进程与线程的概念"></a>进程与线程的概念</h2><h3 id="（1）什么是进程"><a href="#（1）什么是进程" class="headerlink" title="（1）什么是进程"></a>（1）什么是进程</h3><blockquote>
@@ -364,6 +346,219 @@
 <p><a href="https://blog.csdn.net/wx1528159409/article/details/88357728">Redis的缓存穿透及解决方法——布隆过滤器BloomFilter</a></p>
 </li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>SpringBoot框架</title>
+    <url>/2021/12/07/SpringBoot/</url>
+    <content><![CDATA[<h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><h2 id="什么是Springboot"><a href="#什么是Springboot" class="headerlink" title="什么是Springboot"></a>什么是Springboot</h2><blockquote>
+<p>Springboot其实就是基于Spring框架的扩展，相当于Spring那些基于XML文件的繁琐配置，SpringBoot开发更加快速便捷，同时还使用了内嵌式的Tomcat服务容器，提供了Starters来简化项目的构建配置，同时来尽可能的自动配置Spring应用。</p>
+</blockquote>
+<p><code>总结</code>：SpringBoot就是使编码变简单、配置变简单、部署变简单、监控变简单… </p>
+<h2 id="起步依赖"><a href="#起步依赖" class="headerlink" title="起步依赖"></a>起步依赖</h2><p><strong>spring-boot-starter-parent</strong></p>
+<blockquote>
+<p>创建一个SpringBoot项目后，打开pom.xml配置文件会有如下代码</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>点开 spring-boot-starter-parent 出现另一个配置文件，然后有如下代码</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>再次点开 spring-boot-dependencies 就会有一个依赖配置文件，里面有个 <dependencyManagement></p>
+<p>称为版本控制锁定，当继承了这个配置文件时就不需要指定对应依赖的版本，而这些依赖的版本也是经过测试的，相互之间不会造成冲突，因此为项目的配置提供了很大的便利。</p>
+</blockquote>
+<p><strong>spring-boot-starter-web</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>点击 spring-boot-starter-web 会有一个springboot Web开发的依赖配置文件，里面定义了了Web开发需要的一些依赖坐标信息，因此只要依赖于在这个文件，根据依赖的传递，因此就可以间接的导入这些依赖，而不用自己一个一个去导入，简化了项目的配置。</p>
+</blockquote>
+<p><code>starter场景启动器</code></p>
+<blockquote>
+<p>对于依赖 spring-boot-starter-* ： * 就代表着某种场景，只要引入starter，这个场景的所有常规需要的依赖我们都自动引入。</p>
+<p>支持的场景有：<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.build-systems.starters">Starters</a></p>
+</blockquote>
+<p><code>如果需要修改项目依赖的版本号</code></p>
+<p>例如：需要修改mysql连接驱动的版本号</p>
+<ul>
+<li><p>首先查看spring-boot-dependencies里规定当前依赖的版本用的 key</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mysql.version</span>&gt;</span>8.0.26<span class="tag">&lt;/<span class="name">mysql.version</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>然后在当前项目的配置文件里重写</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mysql.version</span>&gt;</span>5.1.43<span class="tag">&lt;/<span class="name">mysql.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h2><blockquote>
+<p>引入spring-boot-web 场景启动器的时候，已经自动引入Tomcat依赖，和SpringMVC依赖，自动配置好了常用的组件。</p>
+</blockquote>
+<blockquote>
+<p>默认的组件配置扫描</p>
+<ul>
+<li><p>主程序所在的包及其下面的子包里面的组件都会被默认扫描进<strong>ConfigurableApplicationContext</strong>（一个IOC容器）</p>
+</li>
+<li><p>如果想要改变扫描路径</p>
+<ul>
+<li><p>@SpringBootApplication(scanBasePackages=<strong>“包名”</strong>)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(scanBasePackages=&quot;com.xiamu&quot;)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>或者使用注解@ComponentScan 指定扫描路径</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ComponentScan(&quot;com.xiamu&quot;)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>因此</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line">等同于</span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;com.xiamu&quot;)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="注解说明"><a href="#注解说明" class="headerlink" title="注解说明"></a>注解说明</h2><h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><blockquote>
+<p>相当于传统的xml配置文件，</p>
+<p>如果有些第三方库需要用到xml文件，建议仍然通过@Configuration类作为项目的配置主类，可以使用@ImportResource注解加载xml配置文件。</p>
+</blockquote>
+<p><code>beans.xml 配置文件</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;uu&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xiamu.springbootstudy.Model.User&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;夏目&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span> <span class="attr">value</span>=<span class="string">&quot;24&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ImportResource(locations = &quot;classpath:beans.xml&quot;)</span><span class="comment">//加载xml配置文件</span></span><br><span class="line"><span class="meta">@Configuration</span> <span class="comment">//告诉SpringBoot这是一个配置类 == 配置文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span> <span class="comment">//给容器中添加组件。以方法名作为组件的id。返回类型就是组件类型。返回的值，就是组件在容器中的实例</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">user</span><span class="params">()</span></span>&#123;</span><br><span class="line">        User u = <span class="keyword">new</span> User(<span class="string">&quot;xiamu&quot;</span>, <span class="number">18</span>);</span><br><span class="line">        <span class="keyword">return</span> u;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootStudyApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        SpringApplication.run(SpringbootStudyApplication.class, args);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//1、返回我们IOC容器</span></span><br><span class="line">        ConfigurableApplicationContext run = SpringApplication.run(SpringbootStudyApplication.class, args);</span><br><span class="line"></span><br><span class="line">        User user = run.getBean(<span class="string">&quot;user&quot;</span>, User.class);</span><br><span class="line">        System.out.println(user.getName() + <span class="string">&quot;  &quot;</span> + user.getAge());</span><br><span class="line"></span><br><span class="line">        User uu = run.getBean(<span class="string">&quot;uu&quot;</span>, User.class);</span><br><span class="line">        System.out.println(uu.getName() + <span class="string">&quot;  &quot;</span> + uu.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>测试结果</code>：</p>
+<img src="https://s2.loli.net/2021/12/07/CDPcMZtEXIleYSF.png" alt="image-20211207160517767" style="zoom:200%;" />
+
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring注解合集</title>
+    <url>/2021/12/07/Spring-Annotation/</url>
+    <content><![CDATA[<h1 id="Spring注解合集"><a href="#Spring注解合集" class="headerlink" title="Spring注解合集"></a>Spring注解合集</h1><h2 id="SpringMVC注解"><a href="#SpringMVC注解" class="headerlink" title="SpringMVC注解"></a>SpringMVC注解</h2><h3 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h3><table>
+<thead>
+<tr>
+<th align="center">注解</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">@Controller</td>
+<td align="center">用于定义控制器类，结合Service接口方法，来处理用户请求。</td>
+</tr>
+<tr>
+<td align="center">@RestController</td>
+<td align="center">用于标注控制层组件，@ResponseBody和@Controller的合集。使用后Controller中的方法无法返回jsp或html页面。</td>
+</tr>
+<tr>
+<td align="center">@ResponseBody</td>
+<td align="center">表示该方法的返回结果直接写入HTTP response body中，一般在异步获取数据时使用，比如返回JSON数据。</td>
+</tr>
+<tr>
+<td align="center">@RequestMapping</td>
+<td align="center">提供路由信息，负责URL到Controller中的具体函数的映射。</td>
+</tr>
+</tbody></table>
+<h3 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h3><blockquote>
+<p>将请求参数绑定到你控制器的方法参数上</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">queryUserName</span><span class="params">(<span class="meta">@RequestParam</span> String userName)</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h3><blockquote>
+<p>将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;show/&#123;id&#125;/&#123;name&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">get</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id ,<span class="meta">@PathVariable(&quot;name&quot;)</span> String name)</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h3><blockquote>
+<p>自动导入依赖的bean</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> Service service;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h3><blockquote>
+<p>一般用于修饰service层的组件</p>
+</blockquote>
+<h3 id="Repository"><a href="#Repository" class="headerlink" title="@Repository"></a>@Repository</h3><blockquote>
+<p>使用@Repository注解可以确保DAO或者repositories提供异常转译，这个注解修饰的DAO或者repositories类会被ComponetScan发现并配置，同时也不需要为它们提供XML配置项。</p>
+</blockquote>
+<h3 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h3><blockquote>
+<p>用@Bean标注方法等价于XML中配置的bean。</p>
+</blockquote>
+<h3 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h3><blockquote>
+<p>泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。</p>
+</blockquote>
+<h3 id="Qualifier"><a href="#Qualifier" class="headerlink" title="@Qualifier"></a>@Qualifier</h3><blockquote>
+<p>当有多个同一类型的Bean时，可以用@Qualifier(“name”)来指定,与@Autowired配合使用。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="meta">@Qualifier(&quot;user&quot;)</span></span><br><span class="line"><span class="keyword">private</span> User user;</span><br><span class="line"></span><br><span class="line">等同于</span><br><span class="line">    </span><br><span class="line"><span class="meta">@Resource(name=&quot;user&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h3><blockquote>
+<p>@Resource(name=”name”,type=”type”)</p>
+<p>没有括号内容的话，默认byName。</p>
+</blockquote>
+<h2 id="SpringBoot注解合集"><a href="#SpringBoot注解合集" class="headerlink" title="SpringBoot注解合集"></a>SpringBoot注解合集</h2><h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><blockquote>
+<p>包含了@ComponentScan、@Configuration和@EnableAutoConfiguration注解。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line">等同于</span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;com.xiamu&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h3><blockquote>
+<p>让spring Boot扫描到Configuration类并把它加入到程序上下文。</p>
+</blockquote>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><blockquote>
+<p>等同于spring的XML配置文件；使用Java代码可以检查类型安全。</p>
+</blockquote>
+<h3 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3><blockquote>
+<p>自动配置。</p>
+</blockquote>
+<h3 id="ComponentScan-1"><a href="#ComponentScan-1" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h3><blockquote>
+<p>组件扫描，可自动发现和装配一些Bean。</p>
+</blockquote>
+<h3 id="Component-1"><a href="#Component-1" class="headerlink" title="@Component"></a>@Component</h3><blockquote>
+<p>可配合CommandLineRunner使用，在程序启动后执行一些基础任务。</p>
+</blockquote>
+<h3 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h3><blockquote>
+<p>注解是@Controller和@ResponseBody的合集,表示这是个控制器bean,并且是将函数的返回值直接填入HTTP响应体中,是REST风格的控制器。</p>
+</blockquote>
+<img src="https://s2.loli.net/2021/12/07/froDgKFtzNHeGuV.png" alt="image-20211207165806400" style="zoom: 200%;" />
+
+<h3 id="Import"><a href="#Import" class="headerlink" title="@Import"></a>@Import</h3><blockquote>
+<p>用来导入其他配置类。</p>
+</blockquote>
+<h3 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h3><blockquote>
+<p>注入Spring boot application.properties配置的属性的值。</p>
+</blockquote>
+<img src="https://s2.loli.net/2021/12/07/Q2hPm4ZAXDSxb6s.png" alt="image-20211207164723713"  />
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;spring.datasource.username&#125;&quot;)</span></span><br><span class="line">    String username;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;spring.datasource.password&#125;&quot;)</span></span><br><span class="line">    String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><code>参考：</code></p>
+<p><a href="https://blog.csdn.net/weixin_40753536/article/details/81285046">SpringBoot注解</a></p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Annotation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
 </search>
